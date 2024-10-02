@@ -4,6 +4,15 @@
  */
 package view.Admin;
 
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.geom.RoundRectangle2D;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
+
 /**
  *
  * @author tango
@@ -14,8 +23,51 @@ public class AdminMain extends javax.swing.JFrame {
      * Creates new form AdminMain
      */
     public AdminMain() {
+ 
+//        setUndecorated(true);
+//        setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
         initComponents();
+
+        //align center
+        setLocationRelativeTo(null);
+
+//        //blur
+//        setOpacity(0.6f);
+        //rounded corner
+        //x, y corner
+        //Jframe window lebar tinggi
+        //arc lebar, arch tinggi
+//        setShape(new RoundRectangle2D.Double(0, 0, getWidth(), getHeight(), 20, 20));
+
+        // Mengatur latar belakang jendela menjadi putih
+        getContentPane().setBackground(Color.WHITE);
+
+//        addCloseButton();
     }
+
+//    private void addCloseButton() {
+//
+//        JButton closeButton = new JButton("X");
+//        closeButton.setFont(new Font("Arial", Font.BOLD, 10));
+//        closeButton.setForeground(Color.WHITE);
+//        closeButton.setBackground(Color.GRAY);
+//        closeButton.setFocusPainted(false);
+//        closeButton.setBorderPainted(false);
+//
+//        // Atur ukuran dan posisi tombol close
+//        closeButton.setBounds(getWidth() - 50, 10, 35, 35);
+//
+//        // Aksi tombol untuk menutup form
+//        closeButton.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+//                System.exit(0); // Tutup aplikasi
+//            }
+//        });
+//
+//        // Tambahkan tombol ke layer tertinggi
+//        getLayeredPane().add(closeButton, JLayeredPane.DRAG_LAYER);
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -26,21 +78,80 @@ public class AdminMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jDialog1 = new javax.swing.JDialog();
+        DataTiketTxt = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        DataTicket = new javax.swing.JTable();
+        btnAdd = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        DataTiketTxt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        DataTiketTxt.setForeground(new java.awt.Color(255, 255, 255));
+        DataTiketTxt.setText("DATA TIKET");
+        getContentPane().add(DataTiketTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 50, 143, -1));
+
+        DataTicket.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"PENS 734", "Surabaya", "Jakarta", "5 Oktober 2024", "11:30:00PM", "250", "Available", "IDR 579,000"},
+                {"PENS 145", "Jakarta", "Surabaya", "6 Oktober 2024", "16:00:00 PM ", "250", "Available", "IDR 600,000"},
+                {"PENS 012", "Surabaya", "Singapore", "6 Oktober 2024", "01:12:00 PM ", "250", "Available", "IDR 1,500,000"},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Flight Code", "Departure City", "Arrival City", "Date", "Time", "Ticket", "Status", "Harga Ticket"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(DataTicket);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 191, 913, 88));
+
+        btnAdd.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        btnAdd.setText("+ Add");
+        btnAdd.setBorder(null);
+        btnAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(883, 143, 74, 30));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\semester 3\\oop\\Project_UTS\\Tiket_Pesawat\\src\\main\\java\\img\\low-angle-shot-airplane-flying-closer-daytime (4).jpg")); // NOI18N
+        jLabel1.setText("jLabel1");
+        jLabel1.setMaximumSize(new java.awt.Dimension(1000, 665));
+        jLabel1.setMinimumSize(new java.awt.Dimension(1000, 665));
+        jLabel1.setPreferredSize(new java.awt.Dimension(1000, 665));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
+        // TODO add your handling code here:
+        AddData tambahData = new AddData();
+        tambahData.setVisible(true);
+    }//GEN-LAST:event_btnAddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -71,6 +182,7 @@ public class AdminMain extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new AdminMain().setVisible(true);
             }
@@ -78,5 +190,12 @@ public class AdminMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTable DataTicket;
+    private javax.swing.JLabel DataTiketTxt;
+    private javax.swing.JButton btnAdd;
+    private javax.swing.JDialog jDialog1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
 }
