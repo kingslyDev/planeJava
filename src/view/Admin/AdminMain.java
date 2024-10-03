@@ -41,6 +41,8 @@ public class AdminMain extends javax.swing.JFrame {
 
         // Mengatur latar belakang jendela menjadi putih
         getContentPane().setBackground(Color.WHITE);
+       
+        
 
 //        addCloseButton();
     }
@@ -83,7 +85,7 @@ public class AdminMain extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         DataTicket = new javax.swing.JTable();
         btnAdd = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        BG = new javax.swing.JLabel();
 
         javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
         jDialog1.getContentPane().setLayout(jDialog1Layout);
@@ -137,12 +139,12 @@ public class AdminMain extends javax.swing.JFrame {
         });
         getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(883, 143, 74, 30));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\semester 3\\oop\\Project_UTS\\Tiket_Pesawat\\src\\main\\java\\img\\low-angle-shot-airplane-flying-closer-daytime (4).jpg")); // NOI18N
-        jLabel1.setText("jLabel1");
-        jLabel1.setMaximumSize(new java.awt.Dimension(1000, 665));
-        jLabel1.setMinimumSize(new java.awt.Dimension(1000, 665));
-        jLabel1.setPreferredSize(new java.awt.Dimension(1000, 665));
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
+        BG.setIcon(new javax.swing.ImageIcon("C:\\semester 3\\oop\\Project_UTS\\Tiket_Pesawat\\src\\main\\java\\img\\low-angle-shot-airplane-flying-closer-daytime (4).jpg")); // NOI18N
+        BG.setText("jLabel1");
+        BG.setMaximumSize(new java.awt.Dimension(1000, 665));
+        BG.setMinimumSize(new java.awt.Dimension(1000, 665));
+        BG.setPreferredSize(new java.awt.Dimension(1000, 665));
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -190,11 +192,11 @@ public class AdminMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BG;
     private javax.swing.JTable DataTicket;
     private javax.swing.JLabel DataTiketTxt;
     private javax.swing.JButton btnAdd;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 

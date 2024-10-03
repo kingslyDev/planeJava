@@ -61,7 +61,7 @@ public class RegisterForm extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        PaintComponent = new javax.swing.JLabel();
         Register = new javax.swing.JLabel();
         Username = new javax.swing.JLabel();
         Password = new javax.swing.JLabel();
@@ -75,21 +75,21 @@ public class RegisterForm extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\semester 3\\oop\\Project_UTS\\Tiket_Pesawat\\src\\main\\java\\img\\low-angle-shot-airplane-flying-closer-daytime (3).jpg")); // NOI18N
-        jLabel2.setText("jLabel2");
-        jLabel2.setMaximumSize(new java.awt.Dimension(500, 600));
-        jLabel2.setMinimumSize(new java.awt.Dimension(410, 519));
-        jLabel2.setPreferredSize(new java.awt.Dimension(500, 600));
+        PaintComponent.setIcon(new javax.swing.ImageIcon("C:\\semester 3\\oop\\Project_UTS\\Tiket_Pesawat\\src\\main\\java\\img\\low-angle-shot-airplane-flying-closer-daytime (3).jpg")); // NOI18N
+        PaintComponent.setText("jLabel2");
+        PaintComponent.setMaximumSize(new java.awt.Dimension(500, 600));
+        PaintComponent.setMinimumSize(new java.awt.Dimension(410, 519));
+        PaintComponent.setPreferredSize(new java.awt.Dimension(500, 600));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(PaintComponent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
+            .addComponent(PaintComponent, javax.swing.GroupLayout.DEFAULT_SIZE, 612, Short.MAX_VALUE)
         );
 
         Register.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
@@ -260,6 +260,7 @@ public class RegisterForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BtnLogin;
     private javax.swing.JButton BtnRegister;
+    private javax.swing.JLabel PaintComponent;
     private javax.swing.JLabel Password;
     private javax.swing.JLabel Register;
     private javax.swing.JLabel Role;
@@ -267,7 +268,6 @@ public class RegisterForm extends javax.swing.JFrame {
     private javax.swing.JPasswordField isiPassword;
     private javax.swing.JComboBox<String> isiRole;
     private javax.swing.JTextField isiUsername;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel loginText;
     // End of variables declaration//GEN-END:variables

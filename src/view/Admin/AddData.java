@@ -32,11 +32,31 @@ public class AddData extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnAddData = new javax.swing.JButton();
+        isiFlightCode = new javax.swing.JTextField();
+        isiDepartureCity = new javax.swing.JTextField();
+        isiArrivalCity = new javax.swing.JTextField();
+        Date = new javax.swing.JTextField();
+        Time = new javax.swing.JTextField();
+        JumlahTicket = new javax.swing.JTextField();
+        Harga = new javax.swing.JTextField();
+        isiStatus = new javax.swing.JComboBox<>();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("TAMBAH TIKET");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, -1, 35));
 
         btnAddData.setText("Add");
         btnAddData.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -44,29 +64,54 @@ public class AddData extends javax.swing.JFrame {
                 btnAddDataMouseClicked(evt);
             }
         });
+        getContentPane().add(btnAddData, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 680, -1, 32));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnAddData)
-                .addGap(51, 51, 51))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(206, 206, 206)
-                .addComponent(jLabel1)
-                .addContainerGap(217, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 461, Short.MAX_VALUE)
-                .addComponent(btnAddData)
-                .addGap(43, 43, 43))
-        );
+        isiFlightCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                isiFlightCodeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(isiFlightCode, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 163, 30));
+        getContentPane().add(isiDepartureCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, 163, 30));
+        getContentPane().add(isiArrivalCity, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 163, 30));
+        getContentPane().add(Date, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 163, 30));
+        getContentPane().add(Time, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 410, 163, 30));
+        getContentPane().add(JumlahTicket, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, 163, 30));
+        getContentPane().add(Harga, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, 163, 30));
+
+        isiStatus.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Available", "Unavailable" }));
+        getContentPane().add(isiStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 560, 163, 35));
+
+        jLabel2.setText("Flight Code");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
+
+        jLabel3.setText("Departure City");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, -1, -1));
+
+        jLabel4.setText("Arrival City");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 250, -1, -1));
+
+        jLabel5.setText("Date");
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
+
+        jLabel6.setText("Time");
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 390, -1, -1));
+
+        jLabel7.setText("Tickets");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 470, -1, -1));
+
+        jLabel8.setText("Status");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 540, -1, -1));
+
+        jLabel9.setText("Harga");
+        getContentPane().add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 610, -1, -1));
+
+        jLabel10.setIcon(new javax.swing.ImageIcon("C:\\semester 3\\oop\\UTS\\planeJava\\src\\assets\\BG.jpg")); // NOI18N
+        jLabel10.setText("cw;canei");
+        jLabel10.setMaximumSize(new java.awt.Dimension(600, 835));
+        jLabel10.setMinimumSize(new java.awt.Dimension(600, 835));
+        jLabel10.setPreferredSize(new java.awt.Dimension(600, 835));
+        getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, -100, 670, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -77,6 +122,10 @@ public class AddData extends javax.swing.JFrame {
         dataTiket.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnAddDataMouseClicked
+
+    private void isiFlightCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_isiFlightCodeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_isiFlightCodeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -114,7 +163,24 @@ public class AddData extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField Date;
+    private javax.swing.JTextField Harga;
+    private javax.swing.JTextField JumlahTicket;
+    private javax.swing.JTextField Time;
     private javax.swing.JButton btnAddData;
+    private javax.swing.JTextField isiArrivalCity;
+    private javax.swing.JTextField isiDepartureCity;
+    private javax.swing.JTextField isiFlightCode;
+    private javax.swing.JComboBox<String> isiStatus;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,6 +4,13 @@
  */
 package view.User;
 
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+import java.awt.RenderingHints;
+import javax.swing.JPanel;
+import java.awt.Color;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tango
@@ -15,6 +22,9 @@ public class UserMain extends javax.swing.JFrame {
      */
     public UserMain() {
         initComponents();
+        getContentPane().setBackground(Color.WHITE);
+        setLocationRelativeTo(null);
+
     }
 
     /**
@@ -26,21 +36,253 @@ public class UserMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jMenu3 = new javax.swing.JMenu();
+        jMenu4 = new javax.swing.JMenu();
+        jMenu5 = new javax.swing.JMenu();
+        jMenu6 = new javax.swing.JMenu();
+        jMenu7 = new javax.swing.JMenu();
+        jMenu1 = new javax.swing.JMenu();
+        PesanTxt = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        DataTicket = new javax.swing.JTable();
+        BoardTxt = new javax.swing.JLabel();
+        PaintComponent3 = new RoundedPanel(30);
+        TroliTXT = new javax.swing.JLabel();
+        BtnBuy = new javax.swing.JButton();
+        PaintComponent = new RoundedPanel(30);
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        btnSearch = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+        jMenu3.setText("jMenu3");
+
+        jMenu4.setText("jMenu4");
+
+        jMenu5.setText("jMenu5");
+
+        jMenu6.setText("jMenu6");
+
+        jMenu7.setText("jMenu7");
+
+        jMenu1.setText("jMenu1");
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        PesanTxt.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        PesanTxt.setForeground(new java.awt.Color(255, 255, 255));
+        PesanTxt.setText("DAFTAR PENERBANGAN");
+        getContentPane().add(PesanTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(503, 31, 295, 70));
+
+        DataTicket.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {"PENS 734", "Surabaya", "Jakarta", "5 Oktober 2024", "11:30:00PM", "250", "Available", "IDR 579,000"},
+                {"PENS 145", "Jakarta", "Surabaya", "6 Oktober 2024", "16:00:00 PM ", "250", "Available", "IDR 600,000"},
+                {"PENS 012", "Surabaya", "Singapore", "6 Oktober 2024", "01:12:00 PM ", "250", "Available", "IDR 1,500,000"},
+                {null, null, null, null, null, null, null, null}
+            },
+            new String [] {
+                "Flight Code", "Departure City", "Arrival City", "Date", "Time", "Ticket", "Status", "Harga Ticket"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(DataTicket);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 470, 960, 88));
+
+        BoardTxt.setForeground(new java.awt.Color(255, 255, 255));
+        BoardTxt.setText("BOARD");
+        getContentPane().add(BoardTxt, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 440, 63, -1));
+
+        PaintComponent3.setBackground(java.awt.SystemColor.activeCaption);
+
+        TroliTXT.setForeground(new java.awt.Color(255, 255, 255));
+        TroliTXT.setText("TROLI");
+
+        BtnBuy.setText("Buy");
+        BtnBuy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtnBuyActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout PaintComponent3Layout = new javax.swing.GroupLayout(PaintComponent3);
+        PaintComponent3.setLayout(PaintComponent3Layout);
+        PaintComponent3Layout.setHorizontalGroup(
+            PaintComponent3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PaintComponent3Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(TroliTXT)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PaintComponent3Layout.createSequentialGroup()
+                .addContainerGap(353, Short.MAX_VALUE)
+                .addComponent(BtnBuy)
+                .addGap(25, 25, 25))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+        PaintComponent3Layout.setVerticalGroup(
+            PaintComponent3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PaintComponent3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(TroliTXT)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 157, Short.MAX_VALUE)
+                .addComponent(BtnBuy)
+                .addGap(20, 20, 20))
         );
+
+        getContentPane().add(PaintComponent3, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 450, 230));
+
+        PaintComponent.setBackground(java.awt.SystemColor.activeCaption);
+
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField1ActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel4.setText("BOARDING PLAN");
+
+        btnSearch.setText("Search");
+
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel5.setText("From");
+
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("To");
+
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel7.setText("Date");
+
+        PaintComponent.setBackground(Color.RED);
+
+        javax.swing.GroupLayout PaintComponentLayout = new javax.swing.GroupLayout(PaintComponent);
+        PaintComponent.setLayout(PaintComponentLayout);
+        PaintComponentLayout.setHorizontalGroup(
+            PaintComponentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PaintComponentLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(PaintComponentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel4)
+                    .addGroup(PaintComponentLayout.createSequentialGroup()
+                        .addGroup(PaintComponentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jTextField1, javax.swing.GroupLayout.DEFAULT_SIZE, 135, Short.MAX_VALUE)
+                            .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(PaintComponentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jTextField2))
+                .addContainerGap(146, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, PaintComponentLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnSearch)
+                .addGap(31, 31, 31))
+        );
+        PaintComponentLayout.setVerticalGroup(
+            PaintComponentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(PaintComponentLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jLabel4)
+                .addGap(27, 27, 27)
+                .addGroup(PaintComponentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(PaintComponentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(19, 19, 19)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnSearch)
+                .addContainerGap(13, Short.MAX_VALUE))
+        );
+
+        PaintComponent.repaint();
+
+        getContentPane().add(PaintComponent, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, -1, 230));
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\semester 3\\oop\\UTS\\planeJava\\src\\assets\\BG.jpg")); // NOI18N
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void BtnBuyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtnBuyActionPerformed
+        // TODO add your handling code here:
+        // Membuat dialog konfirmasi
+        int response = JOptionPane.showConfirmDialog(
+                this,
+                "Apakah Anda yakin ingin memesan tiket ini?",
+                "Konfirmasi Pesanan",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE
+        );
+
+        // Jika pengguna memilih 'Yes'
+        if (response == JOptionPane.YES_OPTION) {
+            // Logika untuk memproses pesanan di sini
+//            JOptionPane.showMessageDialog(this, "Pesanan berhasil!", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+            Seat transaksi = new Seat();
+            transaksi.setVisible(true);
+            this.dispose();
+            
+        } else {
+            // Jika pengguna memilih 'No'
+            JOptionPane.showMessageDialog(this, "Pesanan dibatalkan.", "Info", JOptionPane.INFORMATION_MESSAGE);
+//         
+        }
+    }//GEN-LAST:event_BtnBuyActionPerformed
+
+    class RoundedPanel extends JPanel {
+
+        private int radius;
+
+        public RoundedPanel(int radius) {
+            this.radius = radius;
+            setOpaque(false); // Allow transparency
+        }
+
+        @Override
+        protected void paintComponent(Graphics g) {
+            super.paintComponent(g); // Ensures the component's base painting is done
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setColor(new Color(153, 180, 209, 127)); // Set the background color, opacity
+            g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius); // Draw a rounded rectangle
+
+        }
+
+        protected void paintComponent3(Graphics g) {
+            super.paintComponent(g); // Ensures the component's base painting is done
+            Graphics2D g2 = (Graphics2D) g;
+            g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
+            g2.setColor(new Color(153, 180, 209, 127)); // Set the background color, opacity
+            g2.fillRoundRect(0, 0, getWidth(), getHeight(), radius, radius); // Draw a rounded rectangle
+
+        }
+
+    }
 
     /**
      * @param args the command line arguments
@@ -71,6 +313,7 @@ public class UserMain extends javax.swing.JFrame {
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new UserMain().setVisible(true);
             }
@@ -78,5 +321,28 @@ public class UserMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel BoardTxt;
+    private javax.swing.JButton BtnBuy;
+    private javax.swing.JTable DataTicket;
+    private javax.swing.JPanel PaintComponent;
+    private javax.swing.JPanel PaintComponent3;
+    private javax.swing.JLabel PesanTxt;
+    private javax.swing.JLabel TroliTXT;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JMenu jMenu1;
+    private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
+    private javax.swing.JMenu jMenu5;
+    private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }
