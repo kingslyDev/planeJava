@@ -73,56 +73,63 @@
         <Component class="javax.swing.JTable" name="DataTicket">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="8" rowCount="4">
-                <Column editable="false" title="Flight Code" type="java.lang.Object">
-                  <Data value="PENS 734"/>
-                  <Data value="PENS 145"/>
-                  <Data value="PENS 012"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="false" title="Departure City" type="java.lang.Object">
-                  <Data value="Surabaya"/>
-                  <Data value="Jakarta"/>
-                  <Data value="Surabaya"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="false" title="Arrival City" type="java.lang.Object">
-                  <Data value="Jakarta"/>
-                  <Data value="Surabaya"/>
-                  <Data value="Singapore"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="false" title="Date" type="java.lang.Object">
-                  <Data value="5 Oktober 2024"/>
-                  <Data value="6 Oktober 2024"/>
-                  <Data value="6 Oktober 2024"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="false" title="Time" type="java.lang.Object">
-                  <Data value="11:30:00PM"/>
-                  <Data value="16:00:00 PM "/>
-                  <Data value="01:12:00 PM "/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="false" title="Ticket" type="java.lang.Object">
-                  <Data value="250"/>
-                  <Data value="250"/>
-                  <Data value="250"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="false" title="Status" type="java.lang.Object">
-                  <Data value="Available"/>
-                  <Data value="Available"/>
-                  <Data value="Available"/>
-                  <Data value="null"/>
-                </Column>
-                <Column editable="false" title="Harga Ticket" type="java.lang.Object">
-                  <Data value="IDR 579,000"/>
-                  <Data value="IDR 600,000"/>
-                  <Data value="IDR 1,500,000"/>
-                  <Data value="null"/>
-                </Column>
+              <Table columnCount="8" rowCount="1">
+                <Column editable="false" title="Flight Code" type="java.lang.Object"/>
+                <Column editable="false" title="Departure City" type="java.lang.Object"/>
+                <Column editable="false" title="Arrival City" type="java.lang.Object"/>
+                <Column editable="false" title="Date" type="java.lang.Object"/>
+                <Column editable="false" title="Time" type="java.lang.Object"/>
+                <Column editable="false" title="Ticket" type="java.lang.Object"/>
+                <Column editable="false" title="Status" type="java.lang.Object"/>
+                <Column editable="false" title="Harga Ticket" type="java.lang.Object"/>
               </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
         </Component>
@@ -149,9 +156,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="BG">
       <Properties>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="2" name="C:\semester 3\oop\Project_UTS\Tiket_Pesawat\src\main\java\img\low-angle-shot-airplane-flying-closer-daytime (4).jpg"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="jLabel1"/>
         <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[1000, 665]"/>

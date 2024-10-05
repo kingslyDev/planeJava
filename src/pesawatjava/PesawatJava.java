@@ -4,17 +4,16 @@
  */
 package pesawatjava;
 
+import view.Shared.LoginForm;
+
 /**
  *
  * @author tango
  */
 public class PesawatJava {
-
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        // TODO code application logic here
+        javax.swing.SwingUtilities.invokeLater(() -> {
+            new LoginForm().setVisible(true);
+        });
     }
-    
 }
