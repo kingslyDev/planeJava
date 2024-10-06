@@ -5,6 +5,8 @@ import model.Ticket;
 import java.util.Date;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import view.Shared.LoginForm;
 
 /**
  *
@@ -131,13 +133,13 @@ public class AddData extends javax.swing.JFrame {
         boolean success = controller.addTicket(ticket);
         
         if (success) {
-            // If successful, show a message or perform other actions
-            System.out.println("Tiket berhasil ditambahkan!");
+            JOptionPane.showMessageDialog(this, "Berhasil menambahkan tiket!");
+            new AdminMain().setVisible(true);
+            this.dispose();
         } else {
-            // If failed, show an error message
-            System.out.println("Gagal menambahkan tiket.");
+            JOptionPane.showMessageDialog(this, "Gagal menambahkan tiket!");
         }
-    }                                          
+    }
 
     /**
      * @param args the command line arguments

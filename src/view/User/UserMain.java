@@ -158,7 +158,7 @@ public class UserMain extends javax.swing.JFrame {
         jLabel3.setText("Arrival");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 150, -1));
         
-        jLabel4.setText("Datae");
+        jLabel4.setText("Date");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 150, -1));
         
         listTiket.setModel(new DefaultListModel<>());
