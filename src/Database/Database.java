@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-    private static final String URL = "jdbc:mysql://localhost:3306/tiketoop"; // Change to your database name
+    private static final String URL = "jdbc:mysql://localhost:3306/planejava"; // Change to your database name
     private static final String USER = "root"; // Change if your username is different
     private static final String PASSWORD = ""; // Change if you have a password
 

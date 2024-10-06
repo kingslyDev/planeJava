@@ -8,8 +8,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import view.Admin.AdminMain;
-import view.User.UserMain;
+import view.Admin.ViewTransaksiAdmin;
+import view.User.View;
 
 public class LoginController {
     public void login(String username, String password) {
@@ -36,9 +36,9 @@ public class LoginController {
 
                     // Menentukan tampilan berdasarkan role
                     if (user.getRole() == User.Role.ADMIN) {
-                        new AdminMain().show();
+                        new ViewTransaksiAdmin().show();
                     } else if (user.getRole() == User.Role.CUSTOMER) {
-                        new UserMain().show();
+                        new View().show();
                     }
                 } else {
                     System.out.println("Username atau password salah.");
