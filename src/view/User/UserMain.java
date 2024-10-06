@@ -121,10 +121,20 @@ public class UserMain extends javax.swing.JFrame {
         dateDeparture = new com.toedter.calendar.JDateChooser();
         listTiket = new javax.swing.JList<>();
         BtnBuy = new javax.swing.JButton();
-
+        JLabel BG = new javax.swing.JLabel();
+        JLabel Header = new javax.swing.JLabel();
+        JLabel jLabel2 = new javax.swing.JLabel();
+        JLabel jLabel3 = new javax.swing.JLabel();
+        JLabel jLabel4 = new javax.swing.JLabel();
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        Header.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        Header.setForeground(new java.awt.Color(255, 255, 255));
+        Header.setText("TAMBAH TIKET");
+        getContentPane().add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 40, -1, 35));
+        
         DataTicket.setModel(new javax.swing.table.DefaultTableModel(
                 new Object[][]{},
                 new String[]{
@@ -141,7 +151,16 @@ public class UserMain extends javax.swing.JFrame {
         getContentPane().add(cmbDeparture, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 160, 150, -1));
         getContentPane().add(cmbArrival, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 160, 150, -1));
         getContentPane().add(dateDeparture, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 160, 150, -1));
+        
+        jLabel2.setText("Departure");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 140, 150, -1));
 
+        jLabel3.setText("Arrival");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 150, -1));
+        
+        jLabel4.setText("Datae");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 140, 150, -1));
+        
         listTiket.setModel(new DefaultListModel<>());
         getContentPane().add(new JScrollPane(listTiket), new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 250, 230));
 
@@ -149,6 +168,14 @@ public class UserMain extends javax.swing.JFrame {
         BtnBuy.addActionListener(this::BtnBuyActionPerformed);
         getContentPane().add(BtnBuy, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 160, 100, 30));
 
+         // Set background image for JLabel BG
+        BG.setIcon(new ImageIcon(getClass().getResource("/assets/BG.jpg")));
+        BG.setMaximumSize(new java.awt.Dimension(1000, 600));
+        BG.setMinimumSize(new java.awt.Dimension(1000, 600));
+        BG.setPreferredSize(new java.awt.Dimension(1000, 600));
+
+        // Add BG JLabel to layout
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1263, 835));
         pack();
     }
 
