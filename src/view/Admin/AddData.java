@@ -4,6 +4,7 @@ import controller.AddTicketController;
 import model.Ticket;
 import java.util.Date;
 import java.awt.Color;
+import javax.swing.JLabel;
 
 /**
  *
@@ -48,6 +49,7 @@ public class AddData extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         jDateChooser1 = new com.toedter.calendar.JDateChooser();
+        JLabel BG = new javax.swing.JLabel(); // Tambahkan label untuk background
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -102,6 +104,10 @@ public class AddData extends javax.swing.JFrame {
         jLabel10.setText("cw;canei");
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(-70, -100, 670, -1));
         getContentPane().add(jDateChooser1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 350, 160, -1));
+
+        BG.setIcon(new javax.swing.ImageIcon(getClass().getResource("/assets/BG.jpg"))); // Path to your image
+        BG.setText("");
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 600, 750));
 
         pack();
     }// </editor-fold>                        

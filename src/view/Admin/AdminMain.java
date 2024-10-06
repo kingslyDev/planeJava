@@ -2,6 +2,7 @@ package view.Admin;
 
 import controller.FlightController; // Import the FlightController class
 import java.awt.Color;
+import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -26,6 +27,8 @@ public class AdminMain extends javax.swing.JFrame {
 
         // Load flight data into the table
         loadFlightData();
+        
+        
     }
 
     /**
@@ -54,6 +57,7 @@ public class AdminMain extends javax.swing.JFrame {
             model.addRow(rowData);
         }
     }
+    
 
     /**
      * Event handler for adding new flight data
@@ -63,9 +67,12 @@ public class AdminMain extends javax.swing.JFrame {
         AddData tambahData = new AddData();
         tambahData.setVisible(true);
     }
+    // </editor-fold>
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
+
+    /**
+     * Main method
+     */
     private void initComponents() {
 
         jDialog1 = new javax.swing.JDialog();
@@ -106,6 +113,7 @@ public class AdminMain extends javax.swing.JFrame {
                 false, false, false, false, false, false, false, false
             };
 
+            @Override
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
@@ -124,18 +132,17 @@ public class AdminMain extends javax.swing.JFrame {
         });
         getContentPane().add(btnAdd, new org.netbeans.lib.awtextra.AbsoluteConstraints(883, 143, 74, 30));
 
-        BG.setText("jLabel1");
+        // Set background image for JLabel BG
+        BG.setIcon(new ImageIcon(getClass().getResource("/assets/BG.jpg")));
         BG.setMaximumSize(new java.awt.Dimension(1000, 665));
         BG.setMinimumSize(new java.awt.Dimension(1000, 665));
         BG.setPreferredSize(new java.awt.Dimension(1000, 665));
-        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 600));
+
+        // Add BG JLabel to layout
+        getContentPane().add(BG, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 600));
 
         pack();
-    }// </editor-fold>                        
-
-    /**
-     * Main method
-     */
+    }//
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -153,5 +160,6 @@ public class AdminMain extends javax.swing.JFrame {
     private javax.swing.JButton btnAdd;
     private javax.swing.JDialog jDialog1;
     private javax.swing.JScrollPane jScrollPane1;
-    // End of variables declaration                   
+    
+    
 }
