@@ -96,7 +96,7 @@ public class UserMain extends javax.swing.JFrame {
         int response = JOptionPane.showConfirmDialog(this, "Apakah Anda yakin ingin memesan tiket ini?\nHarga: " + price, "Konfirmasi Pemesanan", JOptionPane.YES_NO_OPTION);
         if (response == JOptionPane.YES_OPTION) {
             // Buat objek Transaction dengan argumen yang diperlukan
-            Transaction transaction = new Transaction(userId, flightCode, boardingCode, status, price, "CUSTOMER", "Keterangan tambahan");
+            Transaction transaction = new Transaction(userId, flightCode, boardingCode, status, price, "CUSTOMER");
 
             if (transactionController.saveTransaction(transaction)) {
                 JOptionPane.showMessageDialog(this, "Transaksi berhasil disimpan!", "Sukses", JOptionPane.INFORMATION_MESSAGE);

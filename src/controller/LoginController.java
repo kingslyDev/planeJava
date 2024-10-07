@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import view.Admin.ViewTransaksiAdmin;
-import view.User.View;
+import view.User.ViewTransaksi;
 
 public class LoginController {
     public void login(String username, String password) {
@@ -38,7 +38,7 @@ public class LoginController {
                     if (user.getRole() == User.Role.ADMIN) {
                         new ViewTransaksiAdmin().show();
                     } else if (user.getRole() == User.Role.CUSTOMER) {
-                        new View().show();
+                        new ViewTransaksi(user.getId()).show(); // Berikan userId sebagai argumen
                     }
                 } else {
                     System.out.println("Username atau password salah.");
