@@ -12,133 +12,133 @@ import java.util.List;
 
 public class TransactionController {
 
-    // Method to save a transaction to the database
-    // Method to save a transaction to the database
-public boolean saveTransaction(Transaction transaction) {
-    String transactionQuery = "INSERT INTO transaksi (user_id, kode_pesawat, waktu_transaksi, kode_boarding, status) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?)";
-    String updateSeatsQuery = "UPDATE tiket SET kursi_tersedia = kursi_tersedia - 1 WHERE kode_pesawat = ?";
-    boolean isSuccess = false;
-    Connection conn = null;
+    /*   Method untuk menyimpan transaksi ke database   */
+    public boolean saveTransaction(Transaction transaction) {
+        String transactionQuery = "INSERT INTO transaksi (user_id, kode_pesawat, waktu_transaksi, kode_boarding, status) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?)";
+        String updateSeatsQuery = "UPDATE tiket SET kursi_tersedia = kursi_tersedia - 1 WHERE kode_pesawat = ?";
+        boolean isSuccess = false; /*   Flag untuk menandakan apakah transaksi berhasil disimpan   */
+        Connection conn = null; /*   Inisialisasi objek Connection   */
 
-    try {
-        conn = Database.getConnection();
-        conn.setAutoCommit(false); // Start transaction
+        try {
+            conn = Database.getConnection(); /*   Mendapatkan koneksi ke database   */
+            conn.setAutoCommit(false); /*   Memulai transaksi database   */
 
-        try (PreparedStatement transactionStmt = conn.prepareStatement(transactionQuery);
-             PreparedStatement updateSeatsStmt = conn.prepareStatement(updateSeatsQuery)) {
+            try (PreparedStatement transactionStmt = conn.prepareStatement(transactionQuery);
+                 PreparedStatement updateSeatsStmt = conn.prepareStatement(updateSeatsQuery)) {
 
-            // Insert transaction data
-            System.out.println("User ID: " + transaction.getUserId());
-            transactionStmt.setLong(1, transaction.getUserId());
-            transactionStmt.setString(2, transaction.getFlightCode());
-            transactionStmt.setString(3, transaction.getBoardingCode());
-            transactionStmt.setString(4, transaction.getStatus());
-            int rowsAffected = transactionStmt.executeUpdate();
+                /*   Menyimpan data transaksi   */
+                System.out.println("User ID: " + transaction.getUserId());
+                transactionStmt.setLong(1, transaction.getUserId());
+                transactionStmt.setString(2, transaction.getFlightCode());
+                transactionStmt.setString(3, transaction.getBoardingCode());
+                transactionStmt.setString(4, transaction.getStatus());
+                int rowsAffected = transactionStmt.executeUpdate(); /*   Eksekusi query untuk menyimpan transaksi   */
 
-            // If the transaction was successful, update seat availability
-            if (rowsAffected > 0) {
-                updateSeatsStmt.setString(1, transaction.getFlightCode());
-                int updateSeatsAffected = updateSeatsStmt.executeUpdate();
+                /*   Jika transaksi berhasil, update jumlah kursi yang tersedia   */
+                if (rowsAffected > 0) {
+                    updateSeatsStmt.setString(1, transaction.getFlightCode());
+                    int updateSeatsAffected = updateSeatsStmt.executeUpdate();
 
-                // Commit transaction only if both operations succeed
-                if (updateSeatsAffected > 0) {
-                    conn.commit();
-                    isSuccess = true;
+                    /*   Commit transaksi jika kedua operasi berhasil   */
+                    if (updateSeatsAffected > 0) {
+                        conn.commit();
+                        isSuccess = true; /*   Tandai transaksi sebagai sukses   */
+                    } else {
+                        conn.rollback(); /*   Rollback jika gagal mengupdate kursi   */
+                    }
                 } else {
-                    conn.rollback(); // Rollback on seat update failure
+                    conn.rollback(); /*   Rollback jika gagal menyimpan transaksi   */
                 }
-            } else {
-                conn.rollback(); // Rollback on transaction failure
+            }
+
+        } catch (SQLException e) {
+            System.err.println("Error saving transaction: " + e.getMessage());
+            e.printStackTrace();
+            if (conn != null) {
+                try {
+                    conn.rollback(); /*   Rollback transaksi jika terjadi kesalahan   */
+                } catch (SQLException rollbackEx) {
+                    System.err.println("Error during rollback: " + rollbackEx.getMessage());
+                }
+            }
+        } finally {
+            if (conn != null) {
+                try {
+                    conn.setAutoCommit(true); /*   Mengembalikan mode autocommit   */
+                    conn.close(); /*   Menutup koneksi ke database   */
+                } catch (SQLException closeEx) {
+                    System.err.println("Error closing connection: " + closeEx.getMessage());
+                }
             }
         }
 
-    } catch (SQLException e) {
-        System.err.println("Error saving transaction: " + e.getMessage());
-        e.printStackTrace();
-        if (conn != null) {
-            try {
-                conn.rollback(); // Ensure rollback on failure
-            } catch (SQLException rollbackEx) {
-                System.err.println("Error during rollback: " + rollbackEx.getMessage());
-            }
-        }
-    } finally {
-        if (conn != null) {
-            try {
-                conn.setAutoCommit(true); // Restore autocommit
-                conn.close();
-            } catch (SQLException closeEx) {
-                System.err.println("Error closing connection: " + closeEx.getMessage());
-            }
-        }
+        return isSuccess; /*   Mengembalikan status transaksi (berhasil atau gagal)   */
     }
 
-    return isSuccess; // Return success status
-}
-
-
-    // Method to get all transactions for a specific user
+    /*   Method untuk mendapatkan semua transaksi untuk pengguna tertentu berdasarkan userId   */
     public List<Transaction> getTransactionsByUserId(long userId) {
-        List<Transaction> transactions = new ArrayList<>();
+        List<Transaction> transactions = new ArrayList<>(); /*   Membuat list untuk menampung transaksi   */
         String query = """
                        SELECT t.user_id, t.kode_pesawat, t.kode_boarding, t.status, tk.price 
                        FROM transaksi t
                        JOIN tiket tk ON t.kode_pesawat = tk.kode_pesawat
                        WHERE t.user_id = ?
-                       """;
+                       """; /*   Query untuk mendapatkan transaksi pengguna   */
 
         try (Connection conn = Database.getConnection();
              PreparedStatement ps = conn.prepareStatement(query)) {
 
-            ps.setLong(1, userId);
-            ResultSet rs = ps.executeQuery();
+            ps.setLong(1, userId); /*   Mengisi parameter userId   */
+            ResultSet rs = ps.executeQuery(); /*   Menjalankan query   */
 
+            /*   Memproses hasil query dan menambahkan objek Transaction ke dalam list   */
             while (rs.next()) {
                 Transaction transaction = new Transaction(
                     userId,
                     rs.getString("kode_pesawat"),
                     rs.getString("kode_boarding"),
                     rs.getString("status"),
-                    rs.getDouble("price"), // Price retrieved from joined tiket table
-                    null // Role not needed
+                    rs.getDouble("price"), /*   Mengambil harga dari tabel tiket   */
+                    null /*   Role tidak diperlukan   */
                 );
-                transactions.add(transaction);
+                transactions.add(transaction); /*   Menambahkan transaksi ke dalam list   */
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return transactions;
+        return transactions; /*   Mengembalikan daftar transaksi pengguna   */
     }
 
-    // Method to get all transactions (for Admin)
+    /*   Method untuk mendapatkan semua transaksi (digunakan oleh Admin)   */
     public List<Transaction> getAllTransactions() {
-        List<Transaction> transactions = new ArrayList<>();
+        List<Transaction> transactions = new ArrayList<>(); /*   Membuat list untuk menampung semua transaksi   */
         String query = """
                        SELECT t.user_id, t.kode_pesawat, t.kode_boarding, t.status, tk.price
                        FROM transaksi t
                        JOIN tiket tk ON t.kode_pesawat = tk.kode_pesawat
-                       """;
+                       """; /*   Query untuk mendapatkan semua transaksi   */
 
         try (Connection conn = Database.getConnection();
              PreparedStatement ps = conn.prepareStatement(query);
              ResultSet rs = ps.executeQuery()) {
 
+            /*   Memproses hasil query dan menambahkan objek Transaction ke dalam list   */
             while (rs.next()) {
                 Transaction transaction = new Transaction(
                     rs.getLong("user_id"),
                     rs.getString("kode_pesawat"),
                     rs.getString("kode_boarding"),
                     rs.getString("status"),
-                    rs.getDouble("price"), // Price retrieved from tiket table
-                    null // Role not needed here
+                    rs.getDouble("price"), /*   Mengambil harga dari tabel tiket   */
+                    null /*   Role tidak diperlukan   */
                 );
-                transactions.add(transaction);
+                transactions.add(transaction); /*   Menambahkan transaksi ke dalam list   */
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
 
-        return transactions;
+        return transactions; /*   Mengembalikan daftar semua transaksi   */
     }
 }

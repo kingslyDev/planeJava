@@ -1,7 +1,7 @@
 package controller;
 
 import database.Database;
-import model.Ticket;  // Import the Ticket model
+import model.Ticket;  /*   Mengimpor model Ticket   */
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -14,22 +14,22 @@ import javax.swing.table.DefaultTableModel;
 
 public class FlightController {
 
-    // Method to populate comboBox for cities (departure/arrival)
+    /*   Method untuk mengisi comboBox dengan data kota (kota keberangkatan/kedatangan)   */
     public void populateCityComboBox(JComboBox<String> comboBox, String columnName) {
-        comboBox.removeAllItems();  // Clear existing items
+        comboBox.removeAllItems();  /*   Menghapus item yang ada di comboBox   */
         try (Connection conn = Database.getConnection()) {
             String query = "SELECT DISTINCT " + columnName + " FROM tiket";
             PreparedStatement ps = conn.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                comboBox.addItem(rs.getString(1));
+                comboBox.addItem(rs.getString(1));  /*   Menambahkan kota ke comboBox   */
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    // Fetch all tickets and return a List of Ticket objects
+    /*   Method untuk mengambil semua tiket dan mengembalikan List objek Ticket   */
     public List<Ticket> getAllTickets() {
         List<Ticket> tickets = new ArrayList<>();
         try (Connection conn = Database.getConnection()) {
@@ -47,25 +47,25 @@ public class FlightController {
                     rs.getString("status"),
                     rs.getDouble("price")
                 );
-                tickets.add(ticket);
+                tickets.add(ticket);  /*   Menambahkan objek Ticket ke dalam List   */
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return tickets;
+        return tickets;  /*   Mengembalikan daftar tiket   */
     }
 
-    // Populate the JTable with all tickets
+    /*   Method untuk mengisi JTable dengan data semua tiket   */
     public void loadAllTicketData(DefaultTableModel model) {
-        model.setRowCount(0);  // Clear the table
-        List<Ticket> tickets = getAllTickets();  // Fetch all ticket data
+        model.setRowCount(0);  /*   Mengosongkan isi tabel   */
+        List<Ticket> tickets = getAllTickets();  /*   Mengambil semua data tiket   */
         for (Ticket ticket : tickets) {
             model.addRow(new Object[]{
                 ticket.getFlightCode(),
                 ticket.getDepartureCity(),
                 ticket.getArrivalCity(),
                 ticket.getDepartureDate(),
-                ticket.getDepartureTime(), // Tambahkan jam keberangkatan
+                ticket.getDepartureTime(),  /*   Menambahkan jam keberangkatan ke tabel   */
                 ticket.getAvailableSeats(),
                 ticket.getStatus(),
                 ticket.getPrice()
@@ -73,7 +73,7 @@ public class FlightController {
         }
     }
 
-    // Search tickets based on selected filters
+    /*   Method untuk mencari tiket berdasarkan filter yang dipilih (kota keberangkatan, kota kedatangan, dan tanggal)   */
     public List<Ticket> searchTickets(String departureCity, String arrivalCity, Date selectedDate) {
         List<Ticket> filteredTickets = new ArrayList<>();
         try (Connection conn = Database.getConnection()) {
@@ -81,7 +81,7 @@ public class FlightController {
             PreparedStatement ps = conn.prepareStatement(query);
             ps.setString(1, departureCity);
             ps.setString(2, arrivalCity);
-            ps.setDate(3, new java.sql.Date(selectedDate.getTime()));  // Convert Date to SQL date
+            ps.setDate(3, new java.sql.Date(selectedDate.getTime()));  /*   Mengonversi Date ke SQL date   */
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Ticket ticket = new Ticket(
@@ -89,30 +89,30 @@ public class FlightController {
                     rs.getString("kota_keberangkatan"),
                     rs.getString("kota_kedatangan"),
                     rs.getDate("jadwal_keberangkatan"),
-                    rs.getString("jam_keberangkatan"), // Tambahkan jam keberangkatan
+                    rs.getString("jam_keberangkatan"),  /*   Menambahkan jam keberangkatan   */
                     rs.getInt("kursi_tersedia"),
                     rs.getString("status"),
                     rs.getDouble("price")
                 );
-                filteredTickets.add(ticket);
+                filteredTickets.add(ticket);  /*   Menambahkan tiket yang sesuai filter ke dalam List   */
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return filteredTickets;
+        return filteredTickets;  /*   Mengembalikan daftar tiket yang sesuai filter   */
     }
 
-    // Populate JTable with search results
+    /*   Method untuk mengisi JTable dengan hasil pencarian tiket   */
     public void populateSearchResults(DefaultTableModel model, String departureCity, String arrivalCity, Date selectedDate) {
-        model.setRowCount(0);  // Clear table before loading search results
-        List<Ticket> tickets = searchTickets(departureCity, arrivalCity, selectedDate);
+        model.setRowCount(0);  /*   Mengosongkan tabel sebelum menampilkan hasil pencarian   */
+        List<Ticket> tickets = searchTickets(departureCity, arrivalCity, selectedDate);  /*   Mencari tiket sesuai filter   */
         for (Ticket ticket : tickets) {
             model.addRow(new Object[]{
                 ticket.getFlightCode(),
                 ticket.getDepartureCity(),
                 ticket.getArrivalCity(),
                 ticket.getDepartureDate(),
-                ticket.getDepartureTime(), // Tambahkan jam keberangkatan
+                ticket.getDepartureTime(),  /*   Menambahkan jam keberangkatan ke tabel hasil pencarian   */
                 ticket.getAvailableSeats(),
                 ticket.getStatus(),
                 ticket.getPrice()

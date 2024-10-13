@@ -1,64 +1,65 @@
-package model;
+package model; /* Mendefinisikan paket model */
 
-public class User {
-    private long id;
-    private String username;
-    private String password;
-    private Role role;  // Using Enum for role
+public class User { /* Kelas User yang merepresentasikan pengguna sistem */
+    private long id;              /* ID pengguna (biasanya sebagai primary key) */
+    private String username;      /* Nama pengguna untuk login */
+    private String password;      /* Kata sandi pengguna */
+    private Role role;           /* Menggunakan Enum untuk peran pengguna */
 
-    // Enum for user roles
+    /* Enum untuk mendefinisikan peran pengguna */
     public enum Role {
-        ADMIN, CUSTOMER
+        ADMIN, CUSTOMER /* Peran yang mungkin dimiliki pengguna */
     }
 
-    // Constructor
+    /* Constructor untuk menginisialisasi objek User dengan parameter yang diberikan */
     public User(long id, String username, String password, Role role) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-        this.role = role;
+        this.id = id;               /* Mengatur ID pengguna */
+        this.username = username;   /* Mengatur nama pengguna */
+        this.password = password;   /* Mengatur kata sandi */
+        this.role = role;           /* Mengatur peran pengguna */
     }
 
-    // Getter and Setter
+    /* Getter dan Setter untuk masing-masing atribut */
+
     public long getId() {
-        return id;
+        return id; /* Mengembalikan ID pengguna */
     }
 
     public void setId(long id) {
-        this.id = id;
+        this.id = id; /* Mengupdate ID pengguna */
     }
 
     public String getUsername() {
-        return username;
+        return username; /* Mengembalikan nama pengguna */
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        this.username = username; /* Mengupdate nama pengguna */
     }
 
     public String getPassword() {
-        return password;
+        return password; /* Mengembalikan kata sandi pengguna */
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = password; /* Mengupdate kata sandi pengguna */
     }
 
     public Role getRole() {
-        return role;
+        return role; /* Mengembalikan peran pengguna */
     }
 
     public void setRole(Role role) {
-        this.role = role;
+        this.role = role; /* Mengupdate peran pengguna */
     }
 
-    // Method to display user info
+    /* Method untuk menampilkan informasi pengguna */
     @Override
     public String toString() {
         return "User{" +
-                "id=" + id +
-                ", username='" + username + '\'' +
-                ", role=" + role +
-                '}';
+                "id=" + id + /* Menampilkan ID pengguna */
+                ", username='" + username + '\'' + /* Menampilkan nama pengguna */
+                ", role=" + role + /* Menampilkan peran pengguna */
+                '}'; /* Mengakhiri string */
     }
 }

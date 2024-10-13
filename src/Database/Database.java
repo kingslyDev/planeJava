@@ -5,38 +5,45 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class Database {
-    private static final String URL = "jdbc:mysql://localhost:3306/tiketoop"; // Change to your database name
-    private static final String USER = "root"; // Change if your username is different
-    private static final String PASSWORD = ""; // Change if you have a password
+    
+    /* URL untuk koneksi ke database MySQL */
+    private static final String URL = "jdbc:mysql://localhost:3306/tiketoop"; 
+    
+    /* Username untuk MySQL */
+    private static final String USER = "root"; 
+    
+    /* Password untuk MySQL (kosong jika tidak ada) */
+    private static final String PASSWORD = ""; 
 
-    // Method to get the connection
+    /* Mendapatkan koneksi ke database */
     public static Connection getConnection() {
         Connection connection = null;
         try {
-            // Attempting to get a connection to the database
+            /* Membuat koneksi ke database */
             connection = DriverManager.getConnection(URL, USER, PASSWORD);
             System.out.println("Connection to database successful!");
         } catch (SQLException e) {
+            /* Jika koneksi gagal, tampilkan pesan error */
             System.err.println("Connection failed: " + e.getMessage());
         }
         return connection;
     }
 
-    // Main method to test the connection
+    /* Metode utama untuk menguji koneksi */
     public static void main(String[] args) {
         Connection conn = Database.getConnection();
         
-        // Check if the connection is successful before proceeding
         if (conn != null) {
             try {
-                // Perform desired operations here
+                /* Tempat untuk menjalankan operasi database */
 
             } finally {
-                // Always close the connection in the finally block
+                /* Tutup koneksi setelah selesai */
                 try {
                     conn.close();
                     System.out.println("Connection closed.");
                 } catch (SQLException e) {
+                    /* Jika gagal menutup koneksi */
                     System.err.println("Failed to close connection: " + e.getMessage());
                 }
             }

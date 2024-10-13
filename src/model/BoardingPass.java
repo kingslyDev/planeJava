@@ -1,14 +1,16 @@
 package model;
 
 public class BoardingPass {
-    private String passengerName;
-    private String fromCity;
-    private String toCity;
-    private String flightCode;
-    private int seatNumber;
-    private String date;
-    private String time;
+    /*   Variabel untuk menyimpan informasi boarding pass   */
+    private String passengerName; /*   Nama penumpang   */
+    private String fromCity; /*   Kota keberangkatan   */
+    private String toCity; /*   Kota tujuan   */
+    private String flightCode; /*   Kode penerbangan   */
+    private int seatNumber; /*   Nomor kursi   */
+    private String date; /*   Tanggal penerbangan   */
+    private String time; /*   Waktu penerbangan   */
 
+    /*   Konstruktor untuk menginisialisasi objek BoardingPass dengan data yang diberikan   */
     public BoardingPass(String passengerName, String fromCity, String toCity, String flightCode, int seatNumber, String date, String time) {
         this.passengerName = passengerName;
         this.fromCity = fromCity;
@@ -19,63 +21,64 @@ public class BoardingPass {
         this.time = time;
     }
 
-    // Getters dan Setters
+    /*   Getters dan Setters untuk mengakses dan memodifikasi data boarding pass   */
     public String getPassengerName() {
-        return passengerName;
+        return passengerName; /*   Mendapatkan nama penumpang   */
     }
 
     public void setPassengerName(String passengerName) {
-        this.passengerName = passengerName;
+        this.passengerName = passengerName; /*   Mengatur nama penumpang   */
     }
 
     public String getFromCity() {
-        return fromCity;
+        return fromCity; /*   Mendapatkan kota keberangkatan   */
     }
 
     public void setFromCity(String fromCity) {
-        this.fromCity = fromCity;
+        this.fromCity = fromCity; /*   Mengatur kota keberangkatan   */
     }
 
     public String getToCity() {
-        return toCity;
+        return toCity; /*   Mendapatkan kota tujuan   */
     }
 
     public void setToCity(String toCity) {
-        this.toCity = toCity;
+        this.toCity = toCity; /*   Mengatur kota tujuan   */
     }
 
     public String getFlightCode() {
-        return flightCode;
+        return flightCode; /*   Mendapatkan kode penerbangan   */
     }
 
     public void setFlightCode(String flightCode) {
-        this.flightCode = flightCode;
+        this.flightCode = flightCode; /*   Mengatur kode penerbangan   */
     }
 
     public int getSeatNumber() {
-        return seatNumber;
+        return seatNumber; /*   Mendapatkan nomor kursi   */
     }
 
     public void setSeatNumber(int seatNumber) {
-        this.seatNumber = seatNumber;
+        this.seatNumber = seatNumber; /*   Mengatur nomor kursi   */
     }
 
     public String getDate() {
-        return date;
+        return date; /*   Mendapatkan tanggal penerbangan   */
     }
 
     public void setDate(String date) {
-        this.date = date;
+        this.date = date; /*   Mengatur tanggal penerbangan   */
     }
 
     public String getTime() {
-        return time;
+        return time; /*   Mendapatkan waktu penerbangan   */
     }
 
     public void setTime(String time) {
-        this.time = time;
+        this.time = time; /*   Mengatur waktu penerbangan   */
     }
 
+    /*   Method untuk mengubah objek BoardingPass menjadi string yang mudah dibaca   */
     @Override
     public String toString() {
         return "BoardingPass{" +
