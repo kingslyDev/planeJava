@@ -5,6 +5,10 @@
 package view.Admin;
 import view.Admin.AdminMain;
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class ViewTransaksiAdmin extends javax.swing.JFrame {
 
     /**

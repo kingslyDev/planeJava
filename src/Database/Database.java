@@ -4,6 +4,10 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class Database {
     
     /* URL untuk koneksi ke database MySQL */
@@ -16,6 +20,12 @@ public class Database {
     private static final String PASSWORD = ""; 
 
     /* Mendapatkan koneksi ke database */
+
+    /**
+     *
+     * @return
+     */
+
     public static Connection getConnection() {
         Connection connection = null;
         try {
@@ -30,6 +40,12 @@ public class Database {
     }
 
     /* Metode utama untuk menguji koneksi */
+
+    /**
+     *
+     * @param args
+     */
+
     public static void main(String[] args) {
         Connection conn = Database.getConnection();
         

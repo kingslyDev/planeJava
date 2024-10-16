@@ -10,9 +10,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class SeatController {
 
     /*   Method untuk mendapatkan semua kursi yang sudah di-check-in oleh pengguna tertentu berdasarkan username   */
+
+    /**
+     *
+     * @param username
+     * @return
+     */
+
     public List<Seat> getCheckedInSeatsByUser(String username) {
         List<Seat> checkedInSeats = new ArrayList<>(); /*   Membuat list untuk menampung kursi yang sudah di-check-in   */
         

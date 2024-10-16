@@ -6,51 +6,51 @@ import javax.swing.table.DefaultTableModel;
 import java.util.List;
 import javax.swing.JOptionPane;
 
-/**
- * Form for viewing user transactions in a JTable.
- */
+/*   Form untuk melihat transaksi pengguna dalam JTable   */
 public class ViewTransaksi extends javax.swing.JFrame {
 
+    /*   Objek TransactionController untuk mengelola transaksi   */
     private TransactionController transactionController;
-    private long userId;  // User ID, should be passed when this form is opened
+    private long userId;  /*   User ID, yang akan diberikan saat form ini dibuka   */
 
     /**
-     * Creates new form ViewTransaksi
+     *  Konstruktor untuk membuat form ViewTransaksi dengan userId sebagai parameter
+     *  @param userId
      */
     public ViewTransaksi(long userId) {
-        this.userId = userId;
-        initComponents();
-        transactionController = new TransactionController();  // Initialize the controller
-        loadTransactions();  // Load transactions when form opens
+        this.userId = userId; /*   Menyimpan userId untuk digunakan dalam form ini   */
+        initComponents(); /*   Inisialisasi komponen UI   */
+        transactionController = new TransactionController();  /*   Inisialisasi controller transaksi   */
+        loadTransactions();  /*   Memuat transaksi pengguna saat form dibuka   */
     }
 
-    // Method to load transactions into JTable
+    /*   Method untuk memuat transaksi pengguna ke dalam JTable   */
     private void loadTransactions() {
-    List<Transaction> transactions = transactionController.getTransactionsByUserId(userId);
-    DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
-    model.setRowCount(0);  // Clear existing rows
+        /*   Mendapatkan daftar transaksi pengguna berdasarkan userId   */
+        List<Transaction> transactions = transactionController.getTransactionsByUserId(userId);
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel(); /*   Mengambil model dari JTable   */
+        model.setRowCount(0);  /*   Menghapus baris yang ada di tabel sebelum memuat data baru   */
 
-    // Check if transactions exist
-    if (transactions.isEmpty()) {
-        JOptionPane.showMessageDialog(this, "No transactions found for this user.");
-        return;
+        /*   Jika tidak ada transaksi, tampilkan pesan   */
+        if (transactions.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "No transactions found for this user.");
+            return;
+        }
+
+        /*   Memasukkan data transaksi ke dalam tabel, kecuali ID transaksi   */
+        for (Transaction transaction : transactions) {
+            model.addRow(new Object[]{
+                transaction.getFlightCode(),
+                "Asal Berangkat",  /*   Placeholder untuk asal keberangkatan   */
+                "Tujuan Berangkat",  /*   Placeholder untuk tujuan keberangkatan   */
+                "Jadwal Berangkat",  /*   Placeholder untuk jadwal keberangkatan   */
+                "Kursi Tersedia",  /*   Placeholder untuk kursi tersedia   */
+                transaction.getStatus(),
+                transaction.getPrice(),
+                "Waktu Berangkat"  /*   Placeholder untuk waktu keberangkatan   */
+            });
+        }
     }
-
-    // Fill table with transaction data, excluding the transaction ID
-    for (Transaction transaction : transactions) {
-        model.addRow(new Object[]{
-            transaction.getFlightCode(),
-            "Asal Berangkat",  // Placeholder
-            "Tujuan Berangkat",  // Placeholder
-            "Jadwal Berangkat",  // Placeholder
-            "Kursi Tersedia",  // Placeholder
-            transaction.getStatus(),
-            transaction.getPrice(),
-            "Waktu Berangkat"  // Placeholder
-        });
-    }
-}
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -210,6 +210,10 @@ public class ViewTransaksi extends javax.swing.JFrame {
         SeatView.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {

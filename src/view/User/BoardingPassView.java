@@ -3,31 +3,32 @@ package view.User;
 import controller.BoardingPassController;
 import model.BoardingPass;
 
+/*   Kelas BoardingPassView untuk menampilkan data boarding pass berdasarkan transactionId   */
 public class BoardingPassView extends javax.swing.JFrame {
 
-    // Konstruktor BoardingPassView yang menerima transactionId
+    /*   Konstruktor BoardingPassView yang menerima transactionId sebagai parameter   */
     public BoardingPassView(long transactionId) {
-        initComponents();
+        initComponents(); /*   Inisialisasi komponen UI   */
 
-        // Panggil method untuk mendapatkan data boarding pass berdasarkan transactionId
+        /*   Memanggil controller untuk mendapatkan data boarding pass berdasarkan transactionId   */
         BoardingPassController controller = new BoardingPassController();
         BoardingPass boardingPass = controller.getBoardingPassDetails(transactionId);
 
-        // Isi data ke dalam field di form
+        /*   Mengisi field pada form dengan data boarding pass yang diterima dari controller   */
         if (boardingPass != null) {
-            IsiNama.setText(boardingPass.getPassengerName());
-            isiDepartureCity.setText(boardingPass.getFromCity());
-            isiArrivalCity.setText(boardingPass.getToCity());
-            isiFlightCode.setText(boardingPass.getFlightCode());
-            jTextField1.setText(String.valueOf(boardingPass.getSeatNumber()));
-            isiDate.setText(boardingPass.getDate());
-            isiTime.setText(boardingPass.getTime());
+            IsiNama.setText(boardingPass.getPassengerName()); /*   Mengisi nama penumpang   */
+            isiDepartureCity.setText(boardingPass.getFromCity()); /*   Mengisi kota keberangkatan   */
+            isiArrivalCity.setText(boardingPass.getToCity()); /*   Mengisi kota tujuan   */
+            isiFlightCode.setText(boardingPass.getFlightCode()); /*   Mengisi kode penerbangan   */
+            jTextField1.setText(String.valueOf(boardingPass.getSeatNumber())); /*   Mengisi nomor kursi   */
+            isiDate.setText(boardingPass.getDate()); /*   Mengisi tanggal keberangkatan   */
+            isiTime.setText(boardingPass.getTime()); /*   Mengisi waktu keberangkatan   */
         }
 
-        // Align center
+        /*   Menyetel posisi form di tengah layar   */
         setLocationRelativeTo(null);
 
-        // Set background color
+        /*   Mengatur warna background form menjadi putih   */
         getContentPane().setBackground(new java.awt.Color(255, 255, 255));
     }
 
@@ -162,28 +163,32 @@ public class BoardingPassView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_isiDateActionPerformed
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> new BoardingPassView(1).setVisible(true));  // Replace with actual Transaction ID for testing
+        java.awt.EventQueue.invokeLater(() -> new BoardingPassView(1).setVisible(true));  /*   Menjalankan aplikasi dengan Transaction ID untuk pengujian   */
     }
 
-    // Variables declaration
-    private javax.swing.JTextField IsiNama;
-    private javax.swing.JTextField isiArrivalCity;
-    private javax.swing.JTextField isiDate;
-    private javax.swing.JTextField isiDepartureCity;
-    private javax.swing.JTextField isiFlightCode;
-    private javax.swing.JTextField isiTime;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JTextField jTextField1;
-    // End of variables declaration                   
+    /* Variabel deklarasi */
+    private javax.swing.JTextField IsiNama; /*   Field untuk nama penumpang   */
+    private javax.swing.JTextField isiArrivalCity; /*   Field untuk kota tujuan   */
+    private javax.swing.JTextField isiDate; /*   Field untuk tanggal keberangkatan   */
+    private javax.swing.JTextField isiDepartureCity; /*   Field untuk kota keberangkatan   */
+    private javax.swing.JTextField isiFlightCode; /*   Field untuk kode penerbangan   */
+    private javax.swing.JTextField isiTime; /*   Field untuk waktu keberangkatan   */
+    private javax.swing.JLabel jLabel1; /*   Label untuk judul   */
+    private javax.swing.JLabel jLabel2; /*   Label untuk nama maskapai   */
+    private javax.swing.JLabel jLabel3; /*   Label untuk nama penumpang   */
+    private javax.swing.JLabel jLabel4; /*   Label untuk keberangkatan   */
+    private javax.swing.JLabel jLabel5; /*   Label untuk tujuan   */
+    private javax.swing.JLabel jLabel6; /*   Label untuk tanggal   */
+    private javax.swing.JLabel jLabel7; /*   Label untuk waktu   */
+    private javax.swing.JLabel jLabel8; /*   Label untuk penerbangan   */
+    private javax.swing.JLabel jLabel9; /*   Label untuk nomor kursi   */
+    private javax.swing.JPanel jPanel3; /*   Panel utama   */
+    private javax.swing.JPanel jPanel4; /*   Panel header   */
+    private javax.swing.JTextField jTextField1; /*   Field untuk nomor kursi   */
+    /*   mengakhiri deklarasi variabel */                  
 }

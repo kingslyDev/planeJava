@@ -4,9 +4,18 @@ import controller.RegisterController; /* Mengimpor kelas RegisterController */
 import javax.swing.*; /* Mengimpor semua kelas dari paket javax.swing */
 import java.awt.*; /* Mengimpor semua kelas dari paket java.awt */
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class RegisterForm extends JFrame { /* Kelas RegisterForm yang merupakan jendela pendaftaran */
 
     /* Constructor untuk inisialisasi form pendaftaran */
+
+    /**
+     *
+     */
+
     public RegisterForm() {
         initComponents(); /* Memanggil method untuk inisialisasi komponen GUI */
         setLocationRelativeTo(null); /* Mengatur posisi jendela di tengah layar */
@@ -168,6 +177,12 @@ public class RegisterForm extends JFrame { /* Kelas RegisterForm yang merupakan 
     }
 
     /* Method utama untuk menjalankan aplikasi */
+
+    /**
+     *
+     * @param args
+     */
+
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(() -> new RegisterForm().setVisible(true)); /* Menampilkan jendela pendaftaran */
     }

@@ -7,9 +7,22 @@ import java.sql.Connection; /*   Mengimpor kelas Connection untuk mengelola kone
 import java.sql.PreparedStatement; /*   Mengimpor kelas PreparedStatement untuk menjalankan query SQL dengan parameter   */
 import java.sql.SQLException; /*   Mengimpor kelas SQLException untuk menangani kesalahan SQL   */
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class RegisterController {
 
     /*   Method untuk mendaftarkan pengguna baru berdasarkan username, password, dan peran (role)   */
+
+    /**
+     *
+     * @param username
+     * @param password
+     * @param roleString
+     * @return
+     */
+
     public boolean register(String username, String password, String roleString) {
         User.Role role;
 

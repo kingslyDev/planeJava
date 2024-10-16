@@ -12,9 +12,20 @@ import java.util.List;
 import javax.swing.JComboBox;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class FlightController {
 
     /*   Method untuk mengisi comboBox dengan data kota (kota keberangkatan/kedatangan)   */
+
+    /**
+     *
+     * @param comboBox
+     * @param columnName
+     */
+
     public void populateCityComboBox(JComboBox<String> comboBox, String columnName) {
         comboBox.removeAllItems();  /*   Menghapus item yang ada di comboBox   */
         try (Connection conn = Database.getConnection()) {
@@ -30,6 +41,12 @@ public class FlightController {
     }
 
     /*   Method untuk mengambil semua tiket dan mengembalikan List objek Ticket   */
+
+    /**
+     *
+     * @return
+     */
+
     public List<Ticket> getAllTickets() {
         List<Ticket> tickets = new ArrayList<>();
         try (Connection conn = Database.getConnection()) {
@@ -56,6 +73,12 @@ public class FlightController {
     }
 
     /*   Method untuk mengisi JTable dengan data semua tiket   */
+
+    /**
+     *
+     * @param model
+     */
+
     public void loadAllTicketData(DefaultTableModel model) {
         model.setRowCount(0);  /*   Mengosongkan isi tabel   */
         List<Ticket> tickets = getAllTickets();  /*   Mengambil semua data tiket   */
@@ -74,6 +97,15 @@ public class FlightController {
     }
 
     /*   Method untuk mencari tiket berdasarkan filter yang dipilih (kota keberangkatan, kota kedatangan, dan tanggal)   */
+
+    /**
+     *
+     * @param departureCity
+     * @param arrivalCity
+     * @param selectedDate
+     * @return
+     */
+
     public List<Ticket> searchTickets(String departureCity, String arrivalCity, Date selectedDate) {
         List<Ticket> filteredTickets = new ArrayList<>();
         try (Connection conn = Database.getConnection()) {
@@ -103,6 +135,15 @@ public class FlightController {
     }
 
     /*   Method untuk mengisi JTable dengan hasil pencarian tiket   */
+
+    /**
+     *
+     * @param model
+     * @param departureCity
+     * @param arrivalCity
+     * @param selectedDate
+     */
+
     public void populateSearchResults(DefaultTableModel model, String departureCity, String arrivalCity, Date selectedDate) {
         model.setRowCount(0);  /*   Mengosongkan tabel sebelum menampilkan hasil pencarian   */
         List<Ticket> tickets = searchTickets(departureCity, arrivalCity, selectedDate);  /*   Mencari tiket sesuai filter   */

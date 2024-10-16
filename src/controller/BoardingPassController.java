@@ -8,9 +8,20 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class BoardingPassController {
 
     /* Method untuk mendapatkan data boarding pass berdasarkan transactionId */
+
+    /**
+     *
+     * @param transactionId
+     * @return
+     */
+
     public BoardingPass getBoardingPassDetails(long transactionId) {
         /* Query untuk mengambil data boarding pass, termasuk nama pengguna, kode penerbangan, 
            kota keberangkatan, kota kedatangan, nomor kursi, tanggal, dan waktu keberangkatan */

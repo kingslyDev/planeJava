@@ -11,8 +11,19 @@ import java.sql.SQLException; /*   Mengimpor kelas SQLException, digunakan untuk
 import view.Admin.ViewTransaksiAdmin; /*   Mengimpor tampilan ViewTransaksiAdmin, digunakan untuk menampilkan halaman khusus admin setelah login   */
 import view.User.ViewTransaksi; /*   Mengimpor tampilan ViewTransaksi, digunakan untuk menampilkan halaman transaksi untuk customer setelah login   */
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class LoginController {
     /*   Method untuk melakukan login berdasarkan username dan password   */
+
+    /**
+     *
+     * @param username
+     * @param password
+     */
+
     public void login(String username, String password) {
         String query = "SELECT * FROM users WHERE username = ? AND password = ?"; /*   Query SQL untuk mengambil data pengguna yang cocok dengan username dan password   */
 

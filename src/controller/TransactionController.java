@@ -10,9 +10,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class TransactionController {
 
     /*   Method untuk menyimpan transaksi ke database   */
+
+    /**
+     *
+     * @param transaction
+     * @return
+     */
+
     public boolean saveTransaction(Transaction transaction) {
         String transactionQuery = "INSERT INTO transaksi (user_id, kode_pesawat, waktu_transaksi, kode_boarding, status) VALUES (?, ?, CURRENT_TIMESTAMP, ?, ?)";
         String updateSeatsQuery = "UPDATE tiket SET kursi_tersedia = kursi_tersedia - 1 WHERE kode_pesawat = ?";
@@ -76,6 +87,13 @@ public class TransactionController {
     }
 
     /*   Method untuk mendapatkan semua transaksi untuk pengguna tertentu berdasarkan userId   */
+
+    /**
+     *
+     * @param userId
+     * @return
+     */
+
     public List<Transaction> getTransactionsByUserId(long userId) {
         List<Transaction> transactions = new ArrayList<>(); /*   Membuat list untuk menampung transaksi   */
         String query = """
@@ -111,6 +129,12 @@ public class TransactionController {
     }
 
     /*   Method untuk mendapatkan semua transaksi (digunakan oleh Admin)   */
+
+    /**
+     *
+     * @return
+     */
+
     public List<Transaction> getAllTransactions() {
         List<Transaction> transactions = new ArrayList<>(); /*   Membuat list untuk menampung semua transaksi   */
         String query = """

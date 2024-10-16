@@ -9,10 +9,21 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Transaction;
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class CheckInController {
 
     /* Method untuk mendapatkan kursi yang tersedia pada penerbangan 
        yang belum melakukan check-in berdasarkan kode penerbangan */
+
+    /**
+     *
+     * @param flightCode
+     * @return
+     */
+
     public List<Integer> getAvailableSeats(String flightCode) {
         List<Integer> availableSeats = new ArrayList<>();  /* List untuk kursi yang tersedia */
         List<Integer> checkedInSeats = new ArrayList<>();  /* List untuk kursi yang sudah check-in */
@@ -65,6 +76,13 @@ public class CheckInController {
     }
 
     /* Method untuk memvalidasi kode boarding dan mengembalikan transaksi terkait */
+
+    /**
+     *
+     * @param boardingCode
+     * @return
+     */
+
     public Transaction validateBoardingCode(String boardingCode) {
         /* Query untuk mendapatkan data transaksi berdasarkan kode boarding */
         String query = "SELECT * FROM transaksi WHERE kode_boarding = ?";
@@ -99,6 +117,14 @@ public class CheckInController {
     }
 
     /* Method untuk melakukan check-in pada kursi dan mengupdate status transaksi */
+
+    /**
+     *
+     * @param transactionId
+     * @param seatNumber
+     * @return
+     */
+
     public boolean checkInSeat(long transactionId, int seatNumber) {
         /* Query untuk memeriksa apakah kursi sudah di-check-in */
         String checkIfCheckedInQuery = "SELECT COUNT(*) FROM kursi WHERE transaksi_id = ? AND nomor_kursi = ? AND is_checked_in = true";

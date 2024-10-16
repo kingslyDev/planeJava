@@ -6,11 +6,22 @@ import javax.swing.ImageIcon; /* Mengimpor kelas ImageIcon untuk menampilkan gam
 import javax.swing.table.DefaultTableModel; /* Mengimpor DefaultTableModel untuk tabel */
 
 /* AdminMain - Tampilan utama bagi Admin untuk mengelola data penerbangan */
+
+/**
+ *
+ * @author ariyo vonda
+ */
+
 public class AdminMain extends javax.swing.JFrame { /* Kelas AdminMain yang merupakan jendela utama */
 
     private final FlightController controllerFlight; /* Kontroler untuk mengelola data penerbangan */
 
     /* Constructor */
+
+    /**
+     *
+     */
+
     public AdminMain() { /* Constructor untuk inisialisasi tampilan */
         initComponents(); /* Memanggil method untuk inisialisasi komponen GUI */
 
@@ -138,6 +149,12 @@ public class AdminMain extends javax.swing.JFrame { /* Kelas AdminMain yang meru
     }
 
     /* Method utama untuk menjalankan aplikasi */
+
+    /**
+     *
+     * @param args
+     */
+
     public static void main(String args[]) { 
         /* Membuat dan menampilkan form */
         java.awt.EventQueue.invokeLater(new Runnable() {

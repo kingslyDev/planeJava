@@ -6,9 +6,20 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+/**
+ *
+ * @author ariyo vonda
+ */
 public class AddTicketController {
 
     /* Method untuk menambahkan tiket baru ke database */
+
+    /**
+     *
+     * @param ticket
+     * @return
+     */
+
     public boolean addTicket(Ticket ticket) {
         /* Mendapatkan koneksi ke database */
         Connection conn = Database.getConnection();
